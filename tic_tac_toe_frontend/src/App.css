@@ -41,16 +41,74 @@
 }
 
 .App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
+  display: none; /* Hide original template header for clean minimalist board */
+}
+
+/* --- Tic Tac Toe Board Styles --- */
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(3, 56px);
+  gap: 0;
+  background: #2196F310;
+  border: 2.5px solid #2196F3;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(33,150,243,0.025);
+  margin: 0 auto;
+}
+
+.ttt-square {
+  width: 56px;
+  height: 56px;
+  background: #E3F2FD;
+  border: 1px solid #2196F380;
+  border-radius: 6px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #2196F3;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.18s, border 0.18s;
+}
+
+.ttt-square:disabled {
+  cursor: not-allowed;
+}
+
+.ttt-square[aria-label^="Cell O"] {
+  color: #FFC107;
+}
+.ttt-square[aria-label^="Cell X"] {
+  color: #2196F3;
+}
+
+.ttt-square[style*="background: rgb(255, 193, 7)"] {
+  background: #FFC10711 !important;
+  border: 1.6px solid #FFC107 !important;
+  outline: 2px solid #FFC107 !important;
+  z-index: 2;
+}
+
+.ttt-reset-btn {
+  margin-top: 24px;
+  background: #2196F3;
+  color: #E3F2FD;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(33,150,243,0.07);
+  transition: all 0.18s;
+}
+
+.ttt-reset-btn:hover,
+.ttt-reset-btn:focus {
+  background: #1976D2;
 }
 
 .App-link {
